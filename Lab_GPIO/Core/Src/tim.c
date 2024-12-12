@@ -21,7 +21,7 @@
 #include "tim.h"
 
 /* USER CODE BEGIN 0 */
-
+uint32_t timer2_Ticks_Millisec;
 /* USER CODE END 0 */
 
 TIM_HandleTypeDef htim2;
@@ -110,7 +110,7 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* tim_baseHandle)
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
   if(htim->Instance == TIM2){
-    timer2_Ticks_Millisec ++;
+    timer2_Ticks_Millisec++;
   }
 }
 
@@ -124,18 +124,18 @@ return value;
 }
 
 
-void timer2_wait_millisec(uint32_t ms)
-{
+void timer2_wait_millisec(uint32_t ms){
 uint32_t t1, t2;
 t1 = timer2_get_millisec();
+
 while (1) {
-t2 = timer2_get_millisec(); 
+t2 = timer2_get_millisec();
 
 if ((t2 - t1) >= ms)
-  break;
+	break;
 if (t2 < t1)
-  break; // almost never occurs, once in 49 days
-} 
+	break; // almost never occurs, once in 49 days
+	}
 }
 
 /* USER CODE END 1 */

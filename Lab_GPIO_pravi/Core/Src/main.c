@@ -68,7 +68,8 @@ int main(void) {
 	gpio_led_state(LED3_ORANGE_ID , 0); //turn off
 	gpio_led_state(LED4_GREEN_ID , 1); //turn on
 	
-}}
+	}
+}
 /* USER CODE END 0 */
 
 /**

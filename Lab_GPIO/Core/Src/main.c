@@ -19,7 +19,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "tim.h"
-#include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -64,14 +63,15 @@ int main(void) {
 	
 	while (1) {
 	timer2_wait_millisec(1000);
-	gpio_led_state(LD3_ORANGE_ID , 1); //turn on
-	gpio_led_state(LD4_GREEN_ID , 0); //turn off
+	gpio_led_state(LED3_ORANGE_ID , 1); //turn on
+	gpio_led_state(LED4_GREEN_ID , 0); //turn off
 
 	timer2_wait_millisec(1000);
-	gpio_led_state(LD3_ORANGE_ID , 0); //turn off
-	gpio_led_state(LD4_GREEN_ID , 1); //turn on
+	gpio_led_state(LED3_ORANGE_ID , 0); //turn off
+	gpio_led_state(LED4_GREEN_ID , 1); //turn on
 	
-}}
+	}
+}
 /* USER CODE END 0 */
 
 /**

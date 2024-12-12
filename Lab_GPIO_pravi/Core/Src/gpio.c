@@ -22,19 +22,7 @@
 #include "gpio.h"
 
 /* USER CODE BEGIN 0 */
-void gpio_led_state(uint8_t LED_ID , uint8_t state) {
-GPIO_PinState pinState;
-pinState = (state == 1) ? GPIO_PIN_SET : GPIO_PIN_RESET;
 
-switch(LED_ID) {
-	case LED3_ORANGE_ID:
-		HAL_GPIO_WritePin(GPIOD, LED3_ORANGE_ID, pinState);
-		break;
-	case LED4_GREEN_ID:
-		HAL_GPIO_WritePin(GPIOD, LED4_GREEN_ID, pinState);
-		break;
-	}
-}
 /* USER CODE END 0 */
 
 /*----------------------------------------------------------------------------*/
@@ -74,5 +62,18 @@ void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 2 */
+void gpio_led_state(uint8_t LED_ID , uint8_t state) {
 
+GPIO_PinState pinState;
+pinState = (state == 1) ? GPIO_PIN_SET : GPIO_PIN_RESET;
+
+switch(LED_ID) {
+	case LED3_ORANGE_ID:
+		HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, pinState);
+		break;
+	case LED4_GREEN_ID:
+		HAL_GPIO_WritePin(LD4_GPIO_Port, LD4_Pin, pinState);
+		break;
+	}
+}
 /* USER CODE END 2 */
